@@ -6,7 +6,7 @@ import { btsVideoContext } from '../App';
 import { InterviewVideoContext } from '../App';
 
 const Search = () => {
-    const API_KEY_YT = ""
+    const API_KEY_YT = "AIzaSyB1n0Tmeodw33Jzp1-QbhamsZh2zKDrJJI"
     const inputData = useContext(InputContext)
     const musicVideoData = useContext(MusicVideoContext)
     const liveVideoData = useContext(LiveVideoContext)
