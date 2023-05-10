@@ -1,4 +1,7 @@
 # everythingmusic
+Remember to add api keys
+
+======================================================
 
 # Getting Started with Create React App
 
