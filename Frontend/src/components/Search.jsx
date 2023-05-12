@@ -1,5 +1,7 @@
 import React, {useContext} from 'react'
 import { InputContext } from '../App';
+import { ArtistInputContext } from '../App';
+import { SongInputContext } from '../App';
 import { MusicVideoContext } from '../App';
 import { LiveVideoContext } from '../App';
 import { btsVideoContext } from '../App';
@@ -7,21 +9,26 @@ import { InterviewVideoContext } from '../App';
 
 const Search = () => {
     const inputData = useContext(InputContext)
+    const artistInputData = useContext(ArtistInputContext)
+    const songInputData = useContext(SongInputContext)
     const musicVideoData = useContext(MusicVideoContext)
     const liveVideoData = useContext(LiveVideoContext)
     const btsVideoData = useContext(btsVideoContext)
     const interviewVideoData = useContext(InterviewVideoContext)
+    let tempInput = ""
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        musicVideoSearch()
-        liveVideoSearch()
-        btsVideoSearch()
-        interviewVideoSearch()
+        tempInput = artistInputData.artistInput + " " + songInputData.songInput
+        inputData.setInput(artistInputData.artistInput + " ~ " + songInputData.songInput)
+        // musicVideoSearch()
+        // liveVideoSearch()
+        // btsVideoSearch()
+        // interviewVideoSearch()
       }
 
       const musicVideoSearch = () => {
-        fetch(`http://localhost:3001/music-video/${inputData.input}`)
+        fetch(`http://localhost:3001/music-video/${tempInput}`)
         .then((res) => {
             return res.json()
         })
@@ -31,7 +38,7 @@ const Search = () => {
       }
 
       const liveVideoSearch = () => {
-        fetch(`http://localhost:3001/live-video/${inputData.input}`)
+        fetch(`http://localhost:3001/live-video/${tempInput}`)
         .then((res) => {
             return res.json()
         })
@@ -41,7 +48,7 @@ const Search = () => {
       }
 
       const btsVideoSearch = () => {
-        fetch(`http://localhost:3001/bts-video/${inputData.input}`)
+        fetch(`http://localhost:3001/bts-video/${tempInput}`)
         .then((res) => {
             return res.json()
         })
@@ -51,7 +58,7 @@ const Search = () => {
       }
 
       const interviewVideoSearch = () => {
-        fetch(`http://localhost:3001/interview-video/${inputData.input}`)
+        fetch(`http://localhost:3001/interview-video/${tempInput}`)
         .then((res) => {
             return res.json()
         })
@@ -63,17 +70,22 @@ const Search = () => {
     return (
         <div id='navbar'>
             <form onSubmit={handleSubmit}>
-                <label>SEARCH: 
+                <label>ARTIST: 
                     <input 
                         type='text'
-                        value={inputData.input}
-                        onChange={(e) => inputData.setInput(e.target.value)}
+                        value={artistInputData.artistInput}
+                        onChange={(e) => artistInputData.setArtistInput(e.target.value)}
+                    />
+                </label>
+                <label>SONG: 
+                    <input 
+                        type='text'
+                        value={songInputData.songInput}
+                        onChange={(e) => songInputData.setSongInput(e.target.value)}
                     />
                 </label>
                 <input type='submit' />
             </form>
-
-
         </div>
     )
 }
