@@ -26,6 +26,17 @@ app.get('/music-video/:id', (req, res) => {
     })
   });
 
+  app.get('/lyric-video/:id', (req, res) => {
+    const { id } = req.params;
+    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${id}%20lyric%20video&type=video&key=${API_KEY_YT}`)
+    .then(response => response.json())
+    .then(data => {
+      res.send(
+        data
+      )
+    })
+  });
+
 app.get('/live-video/:id', (req, res) => {
     const { id } = req.params;
     fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${id}%20live&type=video&key=${API_KEY_YT}`)

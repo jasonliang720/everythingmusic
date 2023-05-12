@@ -1,3 +1,24 @@
+input {
+    width: 15%;
+    border-radius: 50px;
+}
+
+iframe {
+    width: 640px;
+    height: 360px;
+    border: 1px solid aliceblue
+}
+
+#music-video {
+    width: 65%;
+    height: 576px;
+}
+
+#lyric-video {
+    width: 30%;
+    height: 576px;
+}
+
 #navbar {
     background-color: rgb(30, 30, 30);
     height: 10vh;

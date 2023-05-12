@@ -3,15 +3,18 @@ import { InputContext } from '../App';
 import { ArtistInputContext } from '../App';
 import { SongInputContext } from '../App';
 import { MusicVideoContext } from '../App';
+import { LyricVideoContext } from '../App';
 import { LiveVideoContext } from '../App';
 import { btsVideoContext } from '../App';
 import { InterviewVideoContext } from '../App';
+import '../Styles.css';
 
 const Search = () => {
     const inputData = useContext(InputContext)
     const artistInputData = useContext(ArtistInputContext)
     const songInputData = useContext(SongInputContext)
     const musicVideoData = useContext(MusicVideoContext)
+    const lyricVideoData = useContext(LyricVideoContext)
     const liveVideoData = useContext(LiveVideoContext)
     const btsVideoData = useContext(btsVideoContext)
     const interviewVideoData = useContext(InterviewVideoContext)
@@ -21,10 +24,11 @@ const Search = () => {
         event.preventDefault();
         tempInput = artistInputData.artistInput + " " + songInputData.songInput
         inputData.setInput(artistInputData.artistInput + " ~ " + songInputData.songInput)
-        // musicVideoSearch()
-        // liveVideoSearch()
-        // btsVideoSearch()
-        // interviewVideoSearch()
+        musicVideoSearch()
+        lyricVideoSearch()
+        liveVideoSearch()
+        btsVideoSearch()
+        interviewVideoSearch()
       }
 
       const musicVideoSearch = () => {
@@ -34,6 +38,16 @@ const Search = () => {
         })
         .then((data) => {
             musicVideoData.setMusicVideo(data.items[0].id.videoId)
+        })
+      }
+
+      const lyricVideoSearch = () => {
+        fetch(`http://localhost:3001/lyric-video/${tempInput}`)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            lyricVideoData.setLyricVideo(data.items[0].id.videoId)
         })
       }
 
@@ -77,6 +91,7 @@ const Search = () => {
                         onChange={(e) => artistInputData.setArtistInput(e.target.value)}
                     />
                 </label>
+                <br></br>
                 <label>SONG: 
                     <input 
                         type='text'
@@ -84,6 +99,7 @@ const Search = () => {
                         onChange={(e) => songInputData.setSongInput(e.target.value)}
                     />
                 </label>
+                <br></br>
                 <input type='submit' />
             </form>
         </div>
