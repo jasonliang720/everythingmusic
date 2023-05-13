@@ -9,7 +9,6 @@ import { LiveVideoContext } from '../App';
 import { btsVideoContext } from '../App';
 import { InterviewVideoContext } from '../App';
 import { WikiContext } from '../App';
-// import Search from './Search.jsx'
 
 const Searchbar = () => {
     const inputData = useContext(InputContext)
@@ -17,8 +16,8 @@ const Searchbar = () => {
     const songInputData = useContext(SongInputContext)
     const musicVideoData = useContext(MusicVideoContext)
     const lyricVideoData = useContext(LyricVideoContext)
-    const liveVideoData = useContext(LiveVideoContext)
     const btsVideoData = useContext(btsVideoContext)
+    const liveVideoData = useContext(LiveVideoContext)
     const interviewVideoData = useContext(InterviewVideoContext)
     const wikiData = useContext(WikiContext)
     let tempInput = ""

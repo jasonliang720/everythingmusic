@@ -1,6 +1,6 @@
 import './App.css';
 import Searchbar from './components/Searchbar.jsx';
-import Body from './components/Body.jsx'
+import Content from './components/Content.jsx'
 import React, {createContext, useState} from 'react'
 export const InputContext = createContext("")
 export const ArtistInputContext = createContext("")
@@ -36,7 +36,7 @@ function App() {
                       <WikiContext.Provider value={{wiki,setWiki}}>
                         <Searchbar/>
                         <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
-                        <Body/>
+                        <Content/>
                       </WikiContext.Provider>
                     </InterviewVideoContext.Provider>
                   </btsVideoContext.Provider>
