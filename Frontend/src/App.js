@@ -10,6 +10,7 @@ export const LyricVideoContext = createContext("")
 export const LiveVideoContext = createContext("")
 export const btsVideoContext = createContext("")
 export const InterviewVideoContext = createContext("")
+export const WikiContext = createContext("")
 
 function App() {
   const [input, setInput] = useState("");
@@ -20,6 +21,7 @@ function App() {
   const [liveVideo, setLiveVideo] = useState("")
   const [btsVideo, setBtsVideo] = useState("")
   const [interviewVideo, setInterviewVideo] = useState("")
+  const [wiki,setWiki] = useState("")
 
   return (
     <div className="App">
@@ -31,9 +33,11 @@ function App() {
                 <LiveVideoContext.Provider value={{liveVideo,setLiveVideo}}>
                   <btsVideoContext.Provider value={{btsVideo,setBtsVideo}}>
                     <InterviewVideoContext.Provider value={{interviewVideo,setInterviewVideo}}>
-                      <Navbar/>
-                      <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
-                      <Body/>
+                      <WikiContext.Provider value={{wiki,setWiki}}>
+                        <Navbar/>
+                        <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
+                        <Body/>
+                      </WikiContext.Provider>
                     </InterviewVideoContext.Provider>
                   </btsVideoContext.Provider>
                 </LiveVideoContext.Provider>

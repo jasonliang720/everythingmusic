@@ -19,8 +19,17 @@ iframe {
     height: 576px;
 }
 
+#wiki {
+    width: 75%;
+    height: 576px;
+}
+
 #navbar {
     background-color: rgb(30, 30, 30);
-    height: 10vh;
+    height: 15vh;
+    color: aliceblue;
+}
+
+.Title-Headers {
     color: aliceblue;
 }

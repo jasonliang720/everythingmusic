@@ -7,6 +7,7 @@ import { LyricVideoContext } from '../App';
 import { LiveVideoContext } from '../App';
 import { btsVideoContext } from '../App';
 import { InterviewVideoContext } from '../App';
+import { WikiContext } from '../App';
 import '../Styles.css';
 
 const Search = () => {
@@ -18,6 +19,7 @@ const Search = () => {
     const liveVideoData = useContext(LiveVideoContext)
     const btsVideoData = useContext(btsVideoContext)
     const interviewVideoData = useContext(InterviewVideoContext)
+    const wikiData = useContext(WikiContext)
     let tempInput = ""
 
     const handleSubmit = (event) => {
@@ -29,6 +31,7 @@ const Search = () => {
         liveVideoSearch()
         btsVideoSearch()
         interviewVideoSearch()
+        wikiSearch()
       }
 
       const musicVideoSearch = () => {
@@ -78,6 +81,16 @@ const Search = () => {
         })
         .then((data) => {
             interviewVideoData.setInterviewVideo(data.items[0].id.videoId)
+        })
+      }
+
+      const wikiSearch = () => {
+        fetch(`http://localhost:3001/wiki/${tempInput}`)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            wikiData.setWiki(data.query.search[0].pageid)
         })
       }
 
