@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar.jsx';
+import Searchbar from './components/Searchbar.jsx';
 import Body from './components/Body.jsx'
 import React, {createContext, useState} from 'react'
 export const InputContext = createContext("")
@@ -34,7 +34,7 @@ function App() {
                   <btsVideoContext.Provider value={{btsVideo,setBtsVideo}}>
                     <InterviewVideoContext.Provider value={{interviewVideo,setInterviewVideo}}>
                       <WikiContext.Provider value={{wiki,setWiki}}>
-                        <Navbar/>
+                        <Searchbar/>
                         <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
                         <Body/>
                       </WikiContext.Provider>

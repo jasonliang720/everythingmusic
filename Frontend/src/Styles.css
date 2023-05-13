@@ -1,12 +1,21 @@
 input {
-    width: 15%;
+    width: 20%;
+    height: 1.8rem;
     border-radius: 50px;
+}
+
+form {
+    width: 100%;
 }
 
 iframe {
     width: 640px;
     height: 360px;
     border: 1px solid aliceblue
+}
+
+#submit-button {
+    width: 5%;
 }
 
 #music-video {
@@ -28,6 +37,9 @@ iframe {
     background-color: rgb(30, 30, 30);
     height: 15vh;
     color: aliceblue;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Title-Headers {

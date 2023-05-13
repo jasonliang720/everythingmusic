@@ -1,10 +1,10 @@
 import '../Styles.css';
 import Search from './Search.jsx'
 
-const Navbar = () => {
+const Searchbar = () => {
     return (
         <Search/>
     )
 }
 
-export default Navbar;
+export default Searchbar;

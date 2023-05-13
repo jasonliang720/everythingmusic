@@ -28,8 +28,8 @@ const Search = () => {
         inputData.setInput(artistInputData.artistInput + " ~ " + songInputData.songInput)
         musicVideoSearch()
         lyricVideoSearch()
-        liveVideoSearch()
         btsVideoSearch()
+        liveVideoSearch()
         interviewVideoSearch()
         wikiSearch()
       }
@@ -105,7 +105,7 @@ const Search = () => {
                     />
                 </label>
                 <br></br>
-                <label>SONG: 
+                <label>SONG:&nbsp;
                     <input 
                         type='text'
                         value={songInputData.songInput}
@@ -113,7 +113,7 @@ const Search = () => {
                     />
                 </label>
                 <br></br>
-                <input type='submit' />
+                <input id="submit-button" type='submit' value={"Enter"}/>
             </form>
         </div>
     )
