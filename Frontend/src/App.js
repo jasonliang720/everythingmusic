@@ -11,6 +11,10 @@ export const LiveVideoContext = createContext("")
 export const btsVideoContext = createContext("")
 export const InterviewVideoContext = createContext("")
 export const WikiContext = createContext("")
+export const BtsButtonContext = createContext("")
+export const LiveButtonContext = createContext("")
+export const InterviewButtonContext = createContext("")
+export const WikiButtonContext = createContext("")
 
 function App() {
   const [input, setInput] = useState("");
@@ -22,6 +26,10 @@ function App() {
   const [btsVideo, setBtsVideo] = useState("")
   const [interviewVideo, setInterviewVideo] = useState("")
   const [wiki,setWiki] = useState("")
+  const [btsButtonBool,setBtsButtonBool] = useState(false)
+  const [liveButtonBool, setLiveButtonBool] = useState(false)
+  const [interviewButtonBool, setInterviewButtonBool] = useState(false)
+  const [wikiButtonBool, setWikiButtonBool] = useState(false)
 
   return (
     <div className="App">
@@ -34,9 +42,17 @@ function App() {
                   <btsVideoContext.Provider value={{btsVideo,setBtsVideo}}>
                     <InterviewVideoContext.Provider value={{interviewVideo,setInterviewVideo}}>
                       <WikiContext.Provider value={{wiki,setWiki}}>
-                        <Searchbar/>
-                        <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
-                        <Content/>
+                        <BtsButtonContext.Provider value={{btsButtonBool,setBtsButtonBool}}>
+                          <LiveButtonContext.Provider value={{liveButtonBool,setLiveButtonBool}}>
+                            <InterviewButtonContext.Provider value={{interviewButtonBool,setInterviewButtonBool}}>
+                              <WikiButtonContext.Provider value={{wikiButtonBool,setWikiButtonBool}}>
+                                <Searchbar/>
+                                <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
+                                <Content/>
+                              </WikiButtonContext.Provider>
+                            </InterviewButtonContext.Provider>
+                          </LiveButtonContext.Provider>
+                        </BtsButtonContext.Provider>
                       </WikiContext.Provider>
                     </InterviewVideoContext.Provider>
                   </btsVideoContext.Provider>
