@@ -6,7 +6,7 @@ const SourceButton = (props) => {
     const liveButtonValue = useContext(LiveButtonContext)
     const interviewButtonValue = useContext(InterviewButtonContext)
     const wikiButtonValue = useContext(WikiButtonContext)
-    const CallVideo = () => {
+    const CallSrc = () => {
         if (props.label === "BTS")
         {
             btsButtonValue.setBtsButtonBool(true)
@@ -25,7 +25,7 @@ const SourceButton = (props) => {
         }
     }
     return (
-        <button onClick={CallVideo}> {props.label}</button>
+        <button onClick={CallSrc}> {props.label}</button>
     )
 }
 

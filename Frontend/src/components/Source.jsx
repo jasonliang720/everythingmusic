@@ -16,12 +16,20 @@ const Source = (props) => {
     let videoSrc = "https://www.youtube.com/embed/"
 
     if (props.label === "OFFICIAL"){
+        if (musicVideoData.musicVideo !== ""){
             return (
                 <div id='Official'>
                     <iframe id= "music-video" title="musicVideo" allowFullScreen = {true} src= {videoSrc + musicVideoData.musicVideo} ></iframe>
                     <iframe id = "lyric-video" title="lyric" allowFullScreen = {true} src= {videoSrc + lyricVideoData.lyricVideo} ></iframe>
                 </div>
             )
+        }
+        else {
+            return (
+                <h1 className='Title-Headers'>ENTER AN ARTIST & A SONG FROM THEM IN THE SEARCH BOX ABOVE<br></br>IN ORDER TO RETURN VIDEOS
+                                                <br></br><br></br><br></br>OFFICIAL | LYRICS</h1>
+            )
+        }
     }
     else if (props.label === "BTS"){
         if (btsButtonValue.btsButtonBool === true)

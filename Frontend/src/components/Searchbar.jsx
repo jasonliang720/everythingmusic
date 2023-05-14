@@ -1,31 +1,37 @@
 import '../Styles.css';
 import React, {useContext} from 'react'
-import { InputContext } from '../App';
-import { ArtistInputContext } from '../App';
-import { SongInputContext } from '../App';
-import { MusicVideoContext } from '../App';
-import { LyricVideoContext } from '../App';
-import { LiveVideoContext } from '../App';
-import { btsVideoContext } from '../App';
-import { InterviewVideoContext } from '../App';
-import { WikiContext } from '../App';
+import { InputContext, ArtistInputContext, SongInputContext, MusicVideoContext, LyricVideoContext, 
+        btsVideoContext, LiveVideoContext, InterviewVideoContext, WikiContext } from '../App'
+import { BtsButtonContext, LiveButtonContext, InterviewButtonContext, WikiButtonContext } from "../App"
+
 
 const Searchbar = () => {
     const inputData = useContext(InputContext)
     const artistInputData = useContext(ArtistInputContext)
     const songInputData = useContext(SongInputContext)
+
     const musicVideoData = useContext(MusicVideoContext)
     const lyricVideoData = useContext(LyricVideoContext)
     const btsVideoData = useContext(btsVideoContext)
     const liveVideoData = useContext(LiveVideoContext)
     const interviewVideoData = useContext(InterviewVideoContext)
     const wikiData = useContext(WikiContext)
+
+    const btsButtonValue = useContext(BtsButtonContext)
+    const liveButtonValue = useContext(LiveButtonContext)
+    const interviewButtonValue = useContext(InterviewButtonContext)
+    const wikiButtonValue = useContext(WikiButtonContext)
+
     let tempInput = ""
 
     const handleSubmit = (event) => {
         event.preventDefault();
         tempInput = artistInputData.artistInput + " " + songInputData.songInput
         inputData.setInput(artistInputData.artistInput + " ~ " + songInputData.songInput)
+        btsButtonValue.setBtsButtonBool(false)
+        liveButtonValue.setLiveButtonBool(false)
+        interviewButtonValue.setInterviewButtonBool(false)
+        wikiButtonValue.setWikiButtonBool(false)
         musicVideoSearch()
         lyricVideoSearch()
         btsVideoSearch()
@@ -33,6 +39,7 @@ const Searchbar = () => {
         interviewVideoSearch()
         wikiSearch()
       }
+
       const musicVideoSearch = () => {
         fetch(`http://localhost:3001/music-video/${tempInput}`)
         .then((res) => {
