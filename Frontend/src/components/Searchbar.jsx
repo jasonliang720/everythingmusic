@@ -1,7 +1,6 @@
 import '../Styles.css';
 import React, {useContext} from 'react'
-import { InputContext, ArtistInputContext, SongInputContext, MusicVideoContext, LyricVideoContext, 
-        btsVideoContext, LiveVideoContext, InterviewVideoContext, WikiContext } from '../App'
+import { InputContext, ArtistInputContext, SongInputContext, MusicVideoContext, LyricVideoContext} from '../App'
 import { BtsButtonContext, LiveButtonContext, InterviewButtonContext, WikiButtonContext } from "../App"
 
 
@@ -12,10 +11,6 @@ const Searchbar = () => {
 
     const musicVideoData = useContext(MusicVideoContext)
     const lyricVideoData = useContext(LyricVideoContext)
-    const btsVideoData = useContext(btsVideoContext)
-    const liveVideoData = useContext(LiveVideoContext)
-    const interviewVideoData = useContext(InterviewVideoContext)
-    const wikiData = useContext(WikiContext)
 
     const btsButtonValue = useContext(BtsButtonContext)
     const liveButtonValue = useContext(LiveButtonContext)
@@ -34,10 +29,6 @@ const Searchbar = () => {
         wikiButtonValue.setWikiButtonBool(false)
         musicVideoSearch()
         lyricVideoSearch()
-        btsVideoSearch()
-        liveVideoSearch()
-        interviewVideoSearch()
-        wikiSearch()
       }
 
       const musicVideoSearch = () => {
@@ -60,45 +51,6 @@ const Searchbar = () => {
         })
       }
 
-      const liveVideoSearch = () => {
-        fetch(`http://localhost:3001/live-video/${tempInput}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            liveVideoData.setLiveVideo(data.items[0].id.videoId)
-        })
-      }
-
-      const btsVideoSearch = () => {
-        fetch(`http://localhost:3001/bts-video/${tempInput}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            btsVideoData.setBtsVideo(data.items[0].id.videoId)
-        })
-      }
-
-      const interviewVideoSearch = () => {
-        fetch(`http://localhost:3001/interview-video/${tempInput}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            interviewVideoData.setInterviewVideo(data.items[0].id.videoId)
-        })
-      }
-
-      const wikiSearch = () => {
-        fetch(`http://localhost:3001/wiki/${tempInput}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            wikiData.setWiki(data.query.search[0].pageid)
-        })
-      }
     return (
         <div id='navbar'>
             <form onSubmit={handleSubmit}>

@@ -26,8 +26,8 @@ const Source = (props) => {
         }
         else {
             return (
-                <h1 className='Title-Headers'>ENTER AN ARTIST & A SONG FROM THEM IN THE SEARCH BOX ABOVE<br></br>IN ORDER TO RETURN VIDEOS
-                                                <br></br><br></br><br></br>OFFICIAL | LYRICS</h1>
+                <h1 className='Title-Headers'>ENTER AN ARTIST & A SONG FROM THEM IN THE SEARCH BOX ABOVE<br></br>IN ORDER TO RETURN THEIR
+                                            <br></br><br></br><br></br>OFFICIAL MUSIC VIDEO <br></br> <br></br> LYRICS</h1>
             )
         }
     }
