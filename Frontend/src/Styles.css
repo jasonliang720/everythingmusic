@@ -9,8 +9,8 @@ form {
 }
 
 iframe {
-    width: 70%;
-    height: 576px;
+    width: 80%;
+    height: 720px;
     border: 1px solid aliceblue
 }
 
@@ -19,18 +19,15 @@ iframe {
 }
 
 #music-video {
-    width: 65%;
-    height: 576px;
+    width: 62%;
 }
 
 #lyric-video {
-    width: 30%;
-    height: 576px;
+    width: 35%;
 }
 
 #wiki {
-    width: 75%;
-    height: 576px;
+    width: 67%;
 }
 
 #navbar {
@@ -40,6 +37,11 @@ iframe {
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+#title-bar {
+    background-color: rgb(48, 157, 150);
+    color: black
 }
 
 .Title-Headers {

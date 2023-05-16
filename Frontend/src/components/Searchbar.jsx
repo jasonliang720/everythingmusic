@@ -1,7 +1,7 @@
 import '../Styles.css';
 import React, {useContext} from 'react'
 import { InputContext, ArtistInputContext, SongInputContext, MusicVideoContext, LyricVideoContext} from '../App'
-import { BtsButtonContext, LiveButtonContext, InterviewButtonContext, WikiButtonContext } from "../App"
+import { BtsButtonContext, LiveButtonContext, InterviewButtonContext, WikiButtonContext, PlaylistButtonContext } from "../App"
 
 
 const Searchbar = () => {
@@ -15,6 +15,7 @@ const Searchbar = () => {
     const btsButtonValue = useContext(BtsButtonContext)
     const liveButtonValue = useContext(LiveButtonContext)
     const interviewButtonValue = useContext(InterviewButtonContext)
+    const playlistButtonValue = useContext(PlaylistButtonContext)
     const wikiButtonValue = useContext(WikiButtonContext)
 
     let tempInput = ""
@@ -26,6 +27,7 @@ const Searchbar = () => {
         btsButtonValue.setBtsButtonBool(false)
         liveButtonValue.setLiveButtonBool(false)
         interviewButtonValue.setInterviewButtonBool(false)
+        playlistButtonValue.setPlaylistButtonBool(false)
         wikiButtonValue.setWikiButtonBool(false)
         musicVideoSearch()
         lyricVideoSearch()
