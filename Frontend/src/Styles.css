@@ -15,7 +15,8 @@ iframe {
 }
 
 #submit-button {
-    width: 5%;
+    width: 10%;
+    background-color: aliceblue;
 }
 
 #music-video {
@@ -41,9 +42,11 @@ iframe {
 
 #title-bar {
     background-color: rgb(48, 157, 150);
-    color: black
+    color: aliceblue;
+    font-family: 'Apple Chancery';
 }
 
 .Title-Headers {
     color: aliceblue;
+    font-family: 'Franklin Gothic Medium';
 }

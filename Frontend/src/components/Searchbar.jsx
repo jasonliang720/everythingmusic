@@ -56,23 +56,25 @@ const Searchbar = () => {
     return (
         <div id='navbar'>
             <form onSubmit={handleSubmit}>
-                <label>ARTIST: 
+                <label className='Title-Headers'>ARTIST:&nbsp;
                     <input 
                         type='text'
+                        placeholder='   ENTER AN ARTIST...'
                         value={artistInputData.artistInput}
                         onChange={(e) => artistInputData.setArtistInput(e.target.value)}
                     />
                 </label>
                 <br></br>
-                <label>SONG:&nbsp;
+                <label className='Title-Headers'>&nbsp;SONG:&nbsp;&nbsp;
                     <input 
                         type='text'
+                        placeholder='   ENTER A SONG NAME FROM THAT ARTIST...'
                         value={songInputData.songInput}
                         onChange={(e) => songInputData.setSongInput(e.target.value)}
                     />
                 </label>
                 <br></br>
-                <input id="submit-button" type='submit' value={"Enter"}/>
+                <input id="submit-button" type='submit' value={"SEARCH"}/>
             </form>
         </div>
     )

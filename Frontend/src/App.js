@@ -61,7 +61,7 @@ function App() {
                                   <PlaylistButtonContext.Provider value={{playlistButtonBool,setPlaylistButtonBool}}>
                                     <AppTitle/>
                                     <Searchbar/>
-                                    <h1 style={{color:"aliceblue"}}>{input.toUpperCase()}</h1>
+                                    <h1 className='Title-Headers'>{input.toUpperCase()}</h1>
                                     <Content/>
                                     <AppTitle/>
                                   </PlaylistButtonContext.Provider>
