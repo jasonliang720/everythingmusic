@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const app = express();
 app.use(express.json())
 const PORT = 3001;
-const API_KEY_YT = "AIzaSyDxg2iZctdrOTGKa9glT6AlqVzMjw98Hk0"
+const API_KEY_YT = "AIzaSyB1n0Tmeodw33Jzp1-QbhamsZh2zKDrJJI"
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
